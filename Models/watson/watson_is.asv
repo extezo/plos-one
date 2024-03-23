@@ -1,0 +1,23 @@
+clear;
+t_freq = linspace( 0.05, 50, 50 );
+s_freq = linspace( 0, 50, 50 );
+lum = logspace(log10(0.001), log10(1000), 50 );
+[s, t] = meshgrid([flip(-s_freq) s_freq], ...
+                           [flip(-t_freq) t_freq]);
+lum = 10.^(((abs(s)+abs(t))/50)*6);
+% F = scatteredInterpolant(s(:), t(:), lum(:));
+mesh(s, t, lum)
+% set(gca, "View", [-35, 30])
+% % surf( s_freq, t_freq, S, 'FaceColor', 'interp', 'FaceLighting', 'phong' );
+% % set( gca, 'XScale', 'log' );
+% % set( gca, 'YScale', 'log' );
+set( gca, 'ZScale', 'log' );
+% zlim( [0.001 1000] );
+% grid();
+zticklabels(["0.001", "0.01", "0.1", "1", "10", "100", "1000"])
+zticks([0.001, 0.01, 0.1, 1, 10, 100, 1000])
+% % xlim([-50, 50])
+% % ylim([-75, 75])
+zlim([0.001, 1000])
+% axis square
+set(gca, 'Zdir', 'reverse')
