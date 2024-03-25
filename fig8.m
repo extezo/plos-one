@@ -6,19 +6,12 @@ LABEL_TEMP = 'Temporal Frequency (Hz)';
 LABEL_SPATIAL = 'Spatial Frequency (cycles/degree)';
 Y_LABEL = 'Contrast Threshold, log(s)';
 
-load("Results/mean_results_fig8.mat")
-LIGHT_IDX = 3;
-k_tests = k_tests(:, :, :, LIGHT_IDX);
-k_test_s = mean(k_tests, 3);
-figure('name', 'Mean', Position=[100, 100, 600, 500]);
-k = log10(k_test_s);
-k = [k; k(end:-1:1,:)];
-tf_test = [-tf_test; tf_test(end:-1:1,:)];
-sf_test = [sf_test; sf_test(end:-1:1,:)];
-k = [k k(:, end:-1:1)];
-tf_test = [tf_test tf_test(:,end:-1:1)];
-sf_test = [-sf_test sf_test(:,end:-1:1)];
-surf(sf_test, tf_test, k);
+load("Results/mean_and_std_fig8.mat")
+
+surf(mean_x, mean_y, mean_z);
+hold on;
+quiver3(std_x, std_y, std_z, std_u, std_v, std_w,'ShowArrowHead','off','AutoScale','off', Color=[0 0 0])
+hold off;
 set(gca,'FontSize', FONT_SIZE);
 xlabel(LABEL_SPATIAL, Position=[0.787845091225336,-116.390349955358,-3.296301053840679], Rotation=16);
 ylabel(LABEL_TEMP, Position=[-35.9417723547333,1.926110922446242,-3.273551097084557], Rotation=-27);

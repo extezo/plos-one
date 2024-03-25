@@ -126,7 +126,6 @@ csf_pars = struct( 's_frequency', ss(:), 't_frequency', tt(:), ...
     'area', 1, 'eccentricity', 0 );          
 S = csf_model.sensitivity( csf_pars );
 S = log10(S);
-% S = weber2log( min( 1./S, 0.9999999 ) );
 S = reshape( S, size(ss) );
 S = repmat(S, [2, 2, 1]);
 S(1:size(S, 1)/2, 1:size(S, 2)/2, 1:size(S, 3)) = ...
@@ -150,19 +149,16 @@ inds = inds | flip(inds, 2) | flip(inds, 1) | flip(flip(inds, 1), 2);
 
 sss_(inds) = NaN;
 ttt_(inds) = NaN;
-% lum((s/6).^4+(0.667*t/6).^4 < 16) = NaN;
 IS = isosurface(sss, ttt, lll, S, 0);
 F = TriScatteredInterp(IS.vertices(:, 1),IS.vertices(:, 2),IS.vertices(:, 3));
 subplot(1, 4, 3);
 
 
 
-% F(sss_(inds), ttt_(inds)) = NaN;
 S = F(sss_, ttt_);
 inds = abs(ttt_.^3.5)+abs(sss_).^2.5<90;
 S(inds) = NaN;
 p = mesh(sss_, ttt_, S);
-% p = patch(IS);
 
 
 set(p, "FaceColor", "White")
@@ -232,14 +228,7 @@ S(size(S, 1)/2+1:size(S, 1), 1:size(S, 2)/2, 1:size(S, 3)) = ...
     flip(S(1:size(S, 1)/2, 1:size(S, 2)/2, 1:size(S, 3)), 1);
 S(1:size(S, 1)/2, size(S, 2)/2+1:size(S, 1), 1:size(S, 3)) = ...
     flip(S(1:size(S, 1)/2, 1:size(S, 2)/2, 1:size(S, 3)), 2);
-% y th = 0.0808-0.081, y_log th ~= -2.81
 subplot(1, 4, 4);
-% if log
-%     IS = isosurface(sf, tf, lf, S, -2.81);
-% else
-%     IS = isosurface(sf, tf, lf, S, 0.0809);
-% end
-% F = TriScatteredInterp(IS.vertices(:, 1),IS.vertices(:, 2),IS.vertices(:, 3));
 S = S(:, :, 3);
 S = max(S, [], 'all') - S;
 S = S - min(S, [], 'all');
@@ -254,7 +243,6 @@ set(p, "EdgeAlpha", 0.3)
 set(gca, "View", [-45, 30])
 set( gca, 'ZScale', 'log' );
 xlim([-50, 50])
-% ylim([-75, 75])
 zlim( [0.001 1000] );
 zticklabels(["0.001", "0.01", "0.1", "1", "10", "100", "1000"])
 zticks([0.001, 0.01, 0.1, 1, 10, 100, 1000])
@@ -274,10 +262,3 @@ zlabel('Sensitivity','FontName','Times New Roman', 'FontSize', 11, ...
 title({'Visibility Model';'2023'});
 set(gca, 'Zdir', 'reverse')
 axis square
-
-% adjustpdfpage(gcf);
-% if log
-%     print -dpdf models_log.pdf
-% else 
-%     print -dpdf models.pdf
-% end

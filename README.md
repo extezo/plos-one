@@ -1,16 +1,17 @@
-# plos-one
-Public repository for PLOS ONE submission.
+# visibility-model
 
 Results can be used only for research dissemination at conferences, journals, research thesis, and teaching resources. For the above purposes, data can be obtained by request at the email address anast.mozhaeva@gmail.com.
 
-**Table 1. Comparison of the video quality metrics. Pearson correlation coefficient (PLCC).**
-|**Pearson Linear Correlation Coefficient for VQA/Database**||**LIVE-NFLX**||| **MCL-V** |||**CSQ**||
-|---|---|---|---|---|---|---|---|---|---|
-||Upper|PLCC|Lower|Upper|PLCC|Lower|Upper|PLCC|Lower|
-**PSNR** |0.34 |0.318 |0.297 |0.307 |0.110 |-0.292 |0.453 |0.388 |0.317
-**PSNR-M with stelaCSF** |0.384 |0.364 |0.352 |0.628 |0.481 |0.302 |0.42 |0.404 |0.393
-**PSNR-M with FovVideoVDP** |0.402 |0.383 |0.368 |0.64 |0.497 |0.321 |0.381 |0.363 |0.343
-**PSNR-M with Visibility model** |0.422 |0.401 |0.381 |0.643 |0.502 |0.36 |0.458 |0.437 |0.426
-**FovVideoVDP with stelaCSF** |0.448 |0.429 |0.426 |0.339 |0.174 |-0.038 |0.397 |0.381 |0.375
-**FovVideoVDP with FovVideoVDP** |0.342 |0.318 |0.292 |0.304 |0.100 |-0.113 |0.397 |0.382 |0.376
-**FovVideoVDP with Visibility model** |0.49 |0.466 |0.44 |0.29 |0.121 |-0.054 |0.34 |0.339 |0.328
+**Table 1. The coefficients of the defined approximation polynomials of sl(k, f, 120) derivatives.**
+| *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* |
+|---|---|---|---|---|---|---|---|
+| 1 | 2.3132 | *k'<sup>3</sup>* | 8.1636 | *k'<sup>4</sup>* | 2.5845 | *k'<sup>2</sup>l'<sup>2</sup>* | 3.5279 |
+| *k'* | 1.5051 | *f'<sup>3</sup>* | 10.6719 | *f'<sup>4</sup>* | 7.1957 | *f'<sup>2</sup>l'<sup>2</sup>* | 1.9792 |
+| *f'* | 0.3673 | *l'<sup>3</sup>* | 3.4370 | *l'<sup>4</sup>* | 7.1957 | *k'<sup>2</sup>f'l'* | 2.0704 |
+| *l'* | 3.1866 | *k'<sup>2</sup>f'* | 26.5144 | *k'<sup>3</sup>f'* | 9.5953 | *k'f'<sup>2</sup>l'* | 5.3859 |
+| *k'<sup>2</sup>* | 7.6661 | *k'<sup>2</sup>l'* | 2.3375 | *k'<sup>3</sup>l'* | 3.8210 | *k'f'l<sup>2</sup>* | 0.6535 |
+| *f'<sup>2</sup>* | 0.6479 | *f'<sup>2</sup>k'* | 5.9001 | *f'<sup>3</sup>k'* | 0.1436 | - | - |
+| *l'<sup>2</sup>* | 11.7062 | *f'<sup>2</sup>l'* | 29.0300 | *f'<sup>3</sup>l'* | 17.8684 | - | - |
+| *k'f'* | 3.8606 | *l'<sup>2</sup>k'* | 6.5085 | *l'<sup>3</sup>k'* | 0.7139 | - | - |
+| *k'l'* | 1.4359 | *l'<sup>2</sup>f'* | 14.2167 | *l'<sup>3</sup>f'* | 4.2082 | - | - |
+| *f'l'* | 6.8897 | *k'f'l'* | 2.5296 | *k'<sup>2</sup>f'<sup>2</sup>* | 1.3122 | - | - |
