@@ -1,8 +1,9 @@
 # visibility-model
 
-Results can be used only for research dissemination at conferences, journals, research thesis, and teaching resources. For the above purposes, data can be obtained by request at the email address anast.mozhaeva@gmail.com.
+The ethical restrictions on sharing a de-identified data set exist and are imposed by the HECS Human Ethics Committee University of Waikato (Contact point for enquiries Lois Vuursteen lois.vuursteen@waikato.ac.nz ).
+The explanation of ethical restrictions on sharing a de-identified data set presented in the open repository: Data collected from the survey must be stored on university computers. The participants' identities are kept confidential and do not relate to their results. Results can be used only for research dissemination at conferences, journals, research thesis, and teaching resources. For the above purposes, data can be obtained by request at the email address anast.mozhaeva@gmail.com.
 
-**Table 1. The coefficients of the defined approximation polynomials of sl(k, f, 120) derivatives.**
+**Table 1. The coefficients of the defined approximation polynomials of c(k, f, 120) derivatives.**
 | *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* | *I* | *c<sub>i</sub>* |
 |---|---|---|---|---|---|---|---|
 | 1 | 2.3132 | *k'<sup>3</sup>* | 8.1636 | *k'<sup>4</sup>* | 2.5845 | *k'<sup>2</sup>l'<sup>2</sup>* | 3.5279 |
